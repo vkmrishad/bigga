@@ -22,7 +22,7 @@ copyright = '2019, dhilipsiva'
 author = 'dhilipsiva'
 
 # The full version, including alpha/beta/rc tags
-__VERSION__ = '0.0.2'
+__VERSION__ = '0.0.3'
 
 release = __VERSION__
 

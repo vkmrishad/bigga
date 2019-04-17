@@ -3,7 +3,7 @@ from invoke.config import Config, merge_dicts
 
 from bigga import tasks
 
-__VERSION__ = '0.0.2'
+__VERSION__ = '0.0.3'
 
 
 class TesterConfig(Config):
