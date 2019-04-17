@@ -10,6 +10,7 @@ ipdb = "*"
 bumpversion = "*"
 sphinx = "*"
 bigga = {editable = true,path = "."}
+twine = "*"
 
 [packages]
 invoke = "*"
