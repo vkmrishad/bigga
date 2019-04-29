@@ -8,6 +8,7 @@ from urllib.parse import quote
 
 from patchwork import files as pw_files
 from bigga.contrib.fabtools.user import home_directory
+from bigga.contrib.patchwork.packages import update_index, packages
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -37,3 +38,11 @@ def sync_auth_keys(c, env):
             for key in r.json():
                 cxn.run('echo %s >> %s' % (
                     quote(key['key']), quote(authorized_keys_filename)))
+
+
+@task
+def setup(c, env):
+    for host in BIGGA_DATA['hosts'][env]:
+        cxn = Connection(host['ip'], user=host['user'])
+        update_index(cxn)
+        packages(cxn, ["neovim", "python-pip"])
