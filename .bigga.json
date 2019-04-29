@@ -1,0 +1,34 @@
+{
+    "version": "1.0",
+    "language": "python",
+    "name": "golden_sherpa",
+    "desciption": "Reckonsys Golden Sherpa Deployment Configuration",
+    "hosts": {
+        "beta": [{
+            "user": "root",
+            "port": 22,
+            "ip": "206.189.133.72",
+            "services": ["redis", "rabbitmq", "nginx"],
+            "service_args": {"domain": "test.reckonsys.xyz"}
+        }]
+    },
+    "services": [
+        {
+            "name": "web",
+            "framework": "django",
+            "args": {
+                "port": 8889,
+                "nginx_cors": true,
+                "ssl": "custom",
+                "extra_nginx_confs": "client_max_body_size 100M;"
+            }
+        },
+        {
+            "name": "worker",
+            "framework": "celery",
+            "args": {
+                "concurrency": 10
+            }
+        }
+    ]
+}
