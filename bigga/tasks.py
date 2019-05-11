@@ -16,6 +16,40 @@ BIGGA_DATA = json.load(open('.bigga.json'))
 SSH_USERS = ['dhilipsiva']
 
 
+def vagrant(c):
+    config = {}
+    output = c.run('vagrant ssh-config')
+    __import__('ipdb').set_trace()
+    for line in output.splitlines()[1:]:
+        key, value = line.strip().split(' ', 1)
+        config[key] = value
+    print(config)
+    # extra_args = _settings_dict(config)
+
+
+def _settings_dict(config):
+    settings = {}
+
+    user = config['User']
+    hostname = config['HostName']
+    port = config['Port']
+
+    # Build host string
+    host_string = "%s@%s:%s" % (user, hostname, port)
+
+    settings['user'] = user
+    settings['hosts'] = [host_string]
+    settings['host_string'] = host_string
+
+    # Strip leading and trailing double quotes introduced by vagrant 1.1
+    settings['key_filename'] = config['IdentityFile'].strip('"')
+
+    settings['forward_agent'] = (config.get('ForwardAgent', 'no') == 'yes')
+    settings['disable_known_hosts'] = True
+
+    return settings
+
+
 @task
 def echo(c, env):  # , app, env):
     for host in BIGGA_DATA['hosts'][env]:

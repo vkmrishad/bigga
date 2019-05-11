@@ -2,8 +2,12 @@
     "version": "1.0",
     "language": "python",
     "name": "golden_sherpa",
-    "desciption": "Reckonsys Golden Sherpa Deployment Configuration",
+    "description": "Reckonsys Golden Sherpa Deployment Configuration",
     "hosts": {
+        "vagrant": [{
+            "services": ["redis", "rabbitmq", "nginx"],
+            "service_args": {"domain": "test.reckonsys.xyz"}
+        }],
         "beta": [{
             "user": "root",
             "port": 22,
