@@ -39,7 +39,7 @@ class Host(DataClassMixin):
 
 
 @dataclass
-class Config(DataClassMixin):
+class Bigga(DataClassMixin):
     name: str
     version: str
     language: str
@@ -55,9 +55,9 @@ class Config(DataClassMixin):
         data['hosts'] = hosts
         data['services'] = [
             Service.load(service) for service in data['services']]
-        return Config(**data)
+        return Bigga(**data)
 
 
-def get_config(config_file='.bigga.json'):
-    data = jload(open(config_file))
-    return Config.load(data)
+def get_bigga(bigga_file='.bigga.json'):
+    data = jload(open(bigga_file))
+    return Bigga.load(data)
