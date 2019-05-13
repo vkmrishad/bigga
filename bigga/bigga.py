@@ -1,6 +1,10 @@
 from typing import Set, Dict
-from json import dumps as jdumps, load as jload
 from dataclasses import dataclass
+from json import dumps as jdumps, load as jload
+
+from fabric import Connection
+
+BIGGA_JSON = '.bigga.json'
 
 
 class DataClassMixin(object):
@@ -30,12 +34,20 @@ class Host(DataClassMixin):
     service_args: Dict[str, str]
 
     ip: str = ''
+    env: str = ''
     user: str = ''
     port: int = 0
 
     @staticmethod
-    def load(data: Dict):
-        return Host(**data)
+    def load(data: Dict, env):
+        return Host(env=env, **data)
+
+    @property
+    def cxn(self):
+        return Connection(self.ip, user=self.user, port=self.port)
+
+    def run(self, *args, **kwargs):
+        self.cxn.run(*args, **kwargs)
 
 
 @dataclass
@@ -51,13 +63,13 @@ class Bigga(DataClassMixin):
     def load(data: Dict):
         hosts = {}
         for env, _hosts in data["hosts"].items():
-            hosts[env] = [Host.load(host) for host in _hosts]
+            hosts[env] = [Host.load(host, env) for host in _hosts]
         data['hosts'] = hosts
         data['services'] = [
             Service.load(service) for service in data['services']]
         return Bigga(**data)
 
 
-def get_bigga(bigga_file='.bigga.json'):
-    data = jload(open(bigga_file))
+def read_bigga():
+    data = jload(open(BIGGA_JSON))
     return Bigga.load(data)
