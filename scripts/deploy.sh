@@ -1,4 +1,4 @@
-read -e -p "Bump Version (patch/minor/major): " -i "patch" BUMPVERRSION
+read -e -p "Bump Version (major/minor/patch): " -i "patch" BUMPVERRSION
 rm -rf dist/
 bumpversion $BUMPVERRSION
 export CURRENT_BRANCH
