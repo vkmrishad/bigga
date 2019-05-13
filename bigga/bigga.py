@@ -1,8 +1,13 @@
+from posixpath import join
 from typing import Set, Dict
 from dataclasses import dataclass
 from json import dumps as jdumps, load as jload
 
 from fabric import Connection
+from patchwork import files as pw_files
+
+from bigga.contrib.fabtools.user import home_directory
+from bigga.contrib.patchwork.packages import update_index
 
 BIGGA_JSON = '.bigga.json'
 
@@ -43,11 +48,21 @@ class Host(DataClassMixin):
         return Host(env=env, **data)
 
     @property
-    def cxn(self):
+    def _cxn(self):
         return Connection(self.ip, user=self.user, port=self.port)
 
     def run(self, *args, **kwargs):
-        self.cxn.run(*args, **kwargs)
+        self._cxn.run(*args, **kwargs)
+
+    @property
+    def ssh_dir(self):
+        return join(home_directory(self._cxn), '.ssh')
+
+    def ensure_ssh_dir(self):
+        return pw_files.directory(self._cxn, self.ssh_dir, mode='700')
+
+    def update_index(self):
+        return update_index(self._cxn)
 
 
 @dataclass
