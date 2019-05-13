@@ -1,5 +1,6 @@
+read -e -p "Bump Version (patch/minor/major): " -i "patch" BUMPVERRSION
 rm -rf dist/
-bumpversion patch
+bumpversion $BUMPVERRSION
 export CURRENT_BRANCH
 CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 git push --tags

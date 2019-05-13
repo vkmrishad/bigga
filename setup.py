@@ -25,6 +25,6 @@ setup(
         'invoke', 'fabric', 'patchwork'
     ],
     entry_points={
-        'console_scripts': ['bigga = bigga.main:program.run']
+        'console_scripts': ['bigga = bigga.cli:program.run']
     }
 )
