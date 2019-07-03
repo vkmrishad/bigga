@@ -38,7 +38,7 @@ services:
   worker: &worker
     env_file: .env
     restart: always
-    build: ../vigna
+    build: backend
     command: gunicorn autoapp:app -b :6000
     links:
       - mongo:mongo
