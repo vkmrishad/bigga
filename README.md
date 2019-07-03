@@ -12,6 +12,7 @@ Featuring:
 
 Blog post -> https://realpython.com/blog/python/django-development-with-docker-compose-and-machine/
 
+
 ### Instructions
 
 1. Start new machine - `docker-machine create -d virtualbox dev;`
