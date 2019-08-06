@@ -22,6 +22,6 @@ Blog post -> https://realpython.com/blog/python/django-development-with-docker-c
 1. Create migrations - `docker-compose run worker /usr/local/bin/python manage.py migrate` (Please ensure you are not running this command in backend and image that might receive traffic from traefik. Because you don't want a request  to come to this container and fail. )
 1. Grab IP - `docker-machine ip dev` - and view in your browser
 
-## Troubleshoot:
+## Troubleshooting:
 
 Refer our troubleshooting guide: [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
