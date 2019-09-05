@@ -59,11 +59,24 @@ services:
       - traefik.http.middlewares.testHeader.Headers.AccessControlAllowMethods=GET,OPTIONS,PUT,POST,DELETE,PATCH
       - traefik.http.middlewares.testHeader.Headers.AccessControlAllowOrigin=*.${BACKEND_DOMAIN},${BACKEND_DOMAIN}
 
+  ngfrontend:
+    env_file: .env
+    restart: always
+    build: ngfrontend
+    command: PORT=${NGFRONTEND_PORT} npm run serve:ssr
+    expose:
+      - ${NGFRONTEND_PORT}
+    labels:
+      - traefik.enable=true
+      - traefik.backend.domain=${NGFRONTEND_DOMAIN}
+      - traefik.frontend.rule=Host:${NGFRONTEND_DOMAIN}
+
   traefik:
     env_file: .env
     build: traefik
     depends_on:
       - backend
+      - ngfrontend
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - traefik_acme:/etc/traefik/acme/ # Defined in traefik/traefik.toml
