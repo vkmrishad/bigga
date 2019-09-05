@@ -11,7 +11,7 @@ import { XyzComponent } from './xyz/xyz.component';
     XyzComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule
   ],
   providers: [],
