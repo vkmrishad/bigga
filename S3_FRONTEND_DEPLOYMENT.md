@@ -49,6 +49,11 @@
 1. In the HTTP Response Code select "200: OK"
 1. Hit "Create" button
 1. This custom error response MUST be make to support SPA so your SPAs routing will still work after refresh
+1. Go to your distribution settings, and "Domain Name" (usually something like `asfasf123a.cloudfront.com`)
+1. Add a CNAME record in your DNS settings for `myapp.com` and set value to `asfasf123a.cloudfront.com`
+1. YOu cloudfront distribution will take some time to go from "in-progress" to "deplyed"
+1. Build you angular / react app and upload the build files (Probably from your dist folder) into the `myappfrontend` bucket.
+1. Once your cloudfront distribution is "deplyed", visit "myapp.com" to make sure everything is working.
 
 ## Enable gzip
 1. Go to the "behaviors" tab
