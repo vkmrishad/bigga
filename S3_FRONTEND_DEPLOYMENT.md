@@ -40,7 +40,7 @@
 1. THE DOMAIN NAME IN CLOUDFRONT AND THE DOMAIN NAME IN ACM MUST MATCH
 1. In the "Default root object" input, enter "index.html"
 1. Hit "Create Distribution"
-1. It will take about 10 minutes for the Distribution to be deployed
+1. It will take about 30 minutes for the Distribution to be deployed
 1. Meanwhile, click on the Distribution and open the distribution settings
 1. Click on "Error Pages" and hit create custom response
 1. Select 404 not found in HTTP error code
