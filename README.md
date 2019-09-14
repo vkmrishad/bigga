@@ -30,7 +30,7 @@ Suppose you want to run X `backend` containers and Y `worker` containers: `docke
 
 ### S3 Based front-end deplotment
 
-Refer our troubleshooting guide: [S3_FRONTEND_DEPLOYMENT.md](S3_FRONTEND_DEPLOYMENT.md)
+Refer our S3 deployment guide: [S3_FRONTEND_DEPLOYMENT.md](S3_FRONTEND_DEPLOYMENT.md)
 
 
 ## Troubleshooting:
