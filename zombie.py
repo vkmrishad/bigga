@@ -1,7 +1,9 @@
 import os
 
-os.system('docker ps')
-ls = os.popen('docker ps').read().split('\n')[1:-1]
+CMD = 'docker ps'
+
+os.system(CMD)
+ls = os.popen(CMD).read().split('\n')[1:-1]
 zombies = []
 for line in ls:
     container, image = line.split()[:2]
