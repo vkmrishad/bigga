@@ -33,6 +33,11 @@ Suppose you want to run X `backend` containers and Y `worker` containers: `docke
 Refer our S3 deployment guide: [S3_FRONTEND_DEPLOYMENT.md](S3_FRONTEND_DEPLOYMENT.md)
 
 
-## Troubleshooting:
+### Importing / Exporting Docker Machines
+
+Use the `machine-share` npm package. Check out the docs on this GitHub repo: [bhurlow/machine-share](https://github.com/bhurlow/machine-share)
+
+
+### Troubleshooting:
 
 Refer our troubleshooting guide: [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
