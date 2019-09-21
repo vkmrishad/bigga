@@ -38,11 +38,11 @@ Refer our S3 deployment guide: [S3_FRONTEND_DEPLOYMENT.md](S3_FRONTEND_DEPLOYMEN
 Use the `machine-share` npm package. Check out the docs on this GitHub repo: [bhurlow/machine-share](https://github.com/bhurlow/machine-share)
 
 
-### Troubleshooting:
+### Troubleshooting
 
 Refer our troubleshooting guide: [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
 
 
-### Support:
+### Support
 
 Reckonsys offers paid support to containerize your applications (Compose, Swarm, Kubernetes, Mesos, etc..). Please contant [info@reckonsys.com](mailto:info@reckonsys.com) for more details.
