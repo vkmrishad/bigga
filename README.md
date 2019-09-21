@@ -41,3 +41,8 @@ Use the `machine-share` npm package. Check out the docs on this GitHub repo: [bh
 ### Troubleshooting:
 
 Refer our troubleshooting guide: [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
+
+
+### Support:
+
+Reckonsys offers paid support to containerize your applications (Compose, Swarm, Kubernetes, Mesos, etc..). Please contant [info@reckonsys.com](mailto:info@reckonsys.com) for more details.
