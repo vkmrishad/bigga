@@ -45,4 +45,4 @@ Refer our troubleshooting guide: [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
 
 ### Support
 
-Reckonsys offers paid support to containerize your applications (Compose, Swarm, Kubernetes, Mesos, etc..). Please contant [info@reckonsys.com](mailto:info@reckonsys.com) for more details.
+Reckonsys offers paid support to containerize your applications (Compose, Swarm, Kubernetes, Mesos, etc..). Please contact [info@reckonsys.com](mailto:info@reckonsys.com) for more details.
