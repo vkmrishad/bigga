@@ -17,8 +17,9 @@ level = "DEBUG"
 # format = "json"
 
 [api]
-entryPoint = "traefik"
-dashboard = true
+# entryPoint = "traefik"
+# rule = "Host(`traefik.domain.com`)"
+dashboard = false
 
 [ping]
 
