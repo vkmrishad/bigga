@@ -26,6 +26,13 @@ services:
     volumes:
       - rabbitmq_data:/data
 
+  redis:
+    env_file: .env
+    restart: always
+    image: redis:latest
+    ports:
+      - 6379
+
   postgres:
     env_file: .env
     restart: always
@@ -44,6 +51,7 @@ services:
       - mongo:mongo
       - rabbitmq:rabbitmq
       - postgres:postgres
+      - redis:redis
 
   backend:
     <<: *worker
@@ -59,24 +67,26 @@ services:
       - traefik.http.middlewares.testHeader.Headers.AccessControlAllowMethods=GET,OPTIONS,PUT,POST,DELETE,PATCH
       - traefik.http.middlewares.testHeader.Headers.AccessControlAllowOrigin=*.${BACKEND_DOMAIN},${BACKEND_DOMAIN}
 
-  ngfrontend:
+  # This is ONLY for apps that nneds to support SSR.
+  # If you don't use SSR, folow	S3_FRONTEND_DEPLOYMENT.md to deploy directly on s3
+  ssrfrontend:
     env_file: .env
     restart: always
-    build: ngfrontend
-    command: PORT=${NGFRONTEND_PORT} npm run serve:ssr
+    build: ssrfrontend
+    command: PORT=${SSRFRONTEND_PORT} npm run serve:ssr
     expose:
-      - ${NGFRONTEND_PORT}
+      - ${SSRFRONTEND_PORT}
     labels:
       - traefik.enable=true
-      - traefik.backend.domain=${NGFRONTEND_DOMAIN}
-      - traefik.frontend.rule=Host:${NGFRONTEND_DOMAIN}
+      - traefik.backend.domain=${SSRFRONTEND_DOMAIN}
+      - traefik.frontend.rule=Host:${SSRFRONTEND_DOMAIN}
 
   traefik:
     env_file: .env
     build: traefik
     depends_on:
       - backend
-      - ngfrontend
+      - ssrfrontend
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - traefik_acme:/etc/traefik/acme/ # Defined in traefik/traefik.toml
