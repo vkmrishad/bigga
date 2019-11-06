@@ -11,4 +11,4 @@ Don't use a Coffee Machine
 Method 2
 ========
 
-Install these tools in your `coffeemachine`:
+Install these tools in your **coffeemachine**:
