@@ -22,7 +22,8 @@ Install these tools in your **coffeemachine**
 How to install those?
 ---------------------
 
-
+.. code-block:: sh
+    :linenos:
     docker-machine create coffeemachine
     eval $(docker-machine env coffeemachine)
     docker-compose build
