@@ -2,7 +2,7 @@
 ---
 Here we are using our bigga docker-compose script to deploy our backend and worker containers on docker-machine. Please follow the below steps to complete the deployment.
 #### Steps :-
-* you need to crete docker-machine using below command for that you need your digitalocean account api key.
+* you need to create docker-machine using below command for that you need your digitalocean account api key.
 ```
 docker-machine create --driver digitalocean --digitalocean-access-token=your-token your-machine-name
 ```
