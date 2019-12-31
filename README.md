@@ -1,10 +1,13 @@
-## bigga: A generic Docker Compose file to deploy python apps
+# bigga
 
-Featuring:
+## A generic Docker Compose / kunernetes file to deploy python apps
+
+### Featuring:
 
 - Docker
 - Docker Compose
 - Docker Machine
+- Kubernetes (via. [kompose](https://kompose.io/))
 - Python (Web + Worker + SocketIO)
 - PostgreSQL
 - Mongo
@@ -46,12 +49,15 @@ Use the `machine-share` npm package. Check out the docs on this GitHub repo: [bh
 
 Refer our troubleshooting guide: [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
 
+### Kubernetes
+
+We can use [Kompose](https://kompose.io/) to deploy to kubernetes. Just do [`kompose up`](https://kompose.io/getting-started/).
 
 ### Support
 
 Reckonsys offers paid support to containerize your applications (Compose, Swarm, Kubernetes, Mesos, etc..). Please contact [info@reckonsys.com](mailto:info@reckonsys.com) for more details.
 
-# More Docs:
+## More Docs:
 
 #### [Front-end](https://github.com/reckonsys/bigga/blob/master/docs/Frontend.md)
 #### [Backend](https://github.com/reckonsys/bigga/blob/master/docs/Backend.md)
