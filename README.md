@@ -26,7 +26,7 @@ Blog post -> https://realpython.com/blog/python/django-development-with-docker-c
 1. Start new machine - `docker-machine create -d virtualbox dev;`
 1. Configure your shell to use the new machine environment - `eval $(docker-machine env dev)`
 1. Change the `build` paths in the `docker-compose.yml` file to point to your local repositories
-1. Make sure that there is a [`.dockerignore`](.dockerignore) file in each of your repositories that ignores unwanted files line venv, .git folde, etc.
+1. Make sure that there is a [`.dockerignore`](.dockerignore) file in each of your repositories that ignores unwanted files/folders line venv, .git, node_modules folders, etc.
 1. Build images - `docker-compose build`
 1. Start services - `docker-compose up -d`
 1. Create migrations - `docker-compose exec worker /usr/local/bin/python manage.py migrate` (Please ensure you are not running this command in backend and image that might receive traffic from traefik. Because you don't want a request  to come to this container and fail. )
