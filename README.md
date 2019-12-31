@@ -1,6 +1,8 @@
 # bigga
 
-## A generic Docker Compose / kunernetes file to deploy python apps
+A generic Docker Compose / kunernetes file to deploy python apps.
+
+This setup contains everything you need to get started with a production-grade container deployment
 
 ### Featuring:
 
