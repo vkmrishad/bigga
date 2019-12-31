@@ -5,9 +5,11 @@ Featuring:
 - Docker
 - Docker Compose
 - Docker Machine
-- Python
+- Python (Web + Worker + SocketIO)
 - PostgreSQL
 - Mongo
+- Redis
+- RabbitMQ
 - Traefik (nginx alternative)
 
 Blog post -> https://realpython.com/blog/python/django-development-with-docker-compose-and-machine/
@@ -21,7 +23,7 @@ Blog post -> https://realpython.com/blog/python/django-development-with-docker-c
 1. Change the `build` paths in the `docker-compose.yml` file to point to your local repositories
 1. Build images - `docker-compose build`
 1. Start services - `docker-compose up -d`
-1. Create migrations - `docker-compose run worker /usr/local/bin/python manage.py migrate` (Please ensure you are not running this command in backend and image that might receive traffic from traefik. Because you don't want a request  to come to this container and fail. )
+1. Create migrations - `docker-compose exec worker /usr/local/bin/python manage.py migrate` (Please ensure you are not running this command in backend and image that might receive traffic from traefik. Because you don't want a request  to come to this container and fail. )
 1. Grab IP - `docker-machine ip dev` - and view in your browser
 
 
