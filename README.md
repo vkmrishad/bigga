@@ -23,7 +23,7 @@ Blog post -> https://realpython.com/blog/python/django-development-with-docker-c
 ### Instructions
 
 1. Fork this repo (So you can pull updates from us time to time)
-1. Start new machine - `docker-machine create -d virtualbox dev;`
+1. Start new machine - `docker-machine create -d virtualbox dev`. [more drivers](https://docs.docker.com/machine/drivers/)
 1. Configure your shell to use the new machine environment - `eval $(docker-machine env dev)`
 1. Change the `build` paths in the `docker-compose.yml` file to point to your local repositories
 1. Make sure that there is a [`.dockerignore`](.dockerignore) file in each of your repositories that ignores unwanted files/folders line venv, .git, node_modules folders, etc.
