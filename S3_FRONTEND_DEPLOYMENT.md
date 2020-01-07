@@ -62,4 +62,5 @@
 1. Selct the "Compress Objects by default" option and save it.
 
 
-## Advantages
+## Deploy Script
+visit [scripts/deploy.sh](scripts/deploy.sh) to have a look at front-end deploy script
