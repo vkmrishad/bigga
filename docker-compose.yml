@@ -73,7 +73,7 @@ services:
       - traefik.backend.domain=${SOCKET_DOMAIN}
       - traefik.frontend.rule=Host:${SOCKET_DOMAIN}
 
-  # This is ONLY for apps that nneds to support SSR.
+  # This is ONLY for apps that needs to support SSR.
   # If you don't use SSR, folow S3_FRONTEND_DEPLOYMENT.md to deploy directly on s3
   ssrfrontend:
     env_file: .env
