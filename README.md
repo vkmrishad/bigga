@@ -64,6 +64,6 @@ Reckonsys offers paid support to containerize your applications (Compose, Swarm,
 
 ## More Docs:
 
-#### [Front-end](https://github.com/reckonsys/bigga/blob/master/docs/Frontend.md)
-#### [Backend](https://github.com/reckonsys/bigga/blob/master/docs/Backend.md)
-#### [Docker-basics](https://github.com/reckonsys/bigga/blob/master/docs/Docker-container-basics.md)
+#### [Front-end](docs/Frontend.md)
+#### [Backend](docs/Backend.md)
+#### [Docker-basics](docs/Docker-container-basics.md)
