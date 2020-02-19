@@ -45,7 +45,7 @@ services:
   worker: &worker
     env_file: .env
     restart: always
-    build: backend  # Change this to your backend path. ed: ../my/backend/path
+    build: ./backend  # Change this to your backend path. ed: ../my/backend/path
     command: celery -A myapp.tasks worker --loglevel=info
     links:
       - mongo:mongo
@@ -78,7 +78,7 @@ services:
   ssrfrontend:
     env_file: .env
     restart: always
-    build: ssrfrontend  # Change this to your frontend path. ed: ../my/frontent/path
+    build: ./ssrfrontend  # Change this to your frontend path. ed: ../my/frontent/path
     command: PORT=${SSRFRONTEND_PORT} npm run serve:ssr
     expose:
       - ${SSRFRONTEND_PORT}
