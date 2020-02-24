@@ -138,6 +138,18 @@ Mostly we are using these packages in our project, if you neeed aditional packag
 eval $(docker-machine env yourmachinename)
 docker-compose build && docker-compose up -d
 ```
+
+in case of the following error
+```
+Error checking TLS connection: Error checking and/or regenerating the certs: There was an error validating certificates for host "34.242.61.62:2376": x509: certificate is valid for 34.254.186.34, not 34.242.61.62
+You can attempt to regenerate them using 'docker-machine regenerate-certs [name]'.
+Be advised that this will trigger a Docker daemon restart which might stop running containers.
+```
+run the following commang
+```
+'docker-machine regenerate-certs [docker-machine-name]'
+```
+
 after this, if you are creating manual certificate, run the treafik loglevel debug command and add the TXT record in yor DNS management.
 
 * Please use the below commands for checking the container state,migrations,logs.
