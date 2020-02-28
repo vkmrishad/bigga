@@ -49,6 +49,12 @@ Refer our S3 deployment guide: [S3_FRONTEND_DEPLOYMENT.md](S3_FRONTEND_DEPLOYMEN
 
 Use the `machine-share` npm package. Check out the docs on this GitHub repo: [bhurlow/machine-share](https://github.com/bhurlow/machine-share)
 
+### Inspecting / Deleting Volumes
+
+* To list your volumes: `docker volume ls`.
+* To inspect a volume: `docker volume inspect my_volume_name`
+* To remove a volume: `docker volume rm my_volume_name`
+
 
 ### Troubleshooting
 
