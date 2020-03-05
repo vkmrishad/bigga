@@ -73,3 +73,4 @@ Reckonsys offers paid support to containerize your applications (Compose, Swarm,
 #### [Front-end](docs/Frontend.md)
 #### [Backend](docs/Backend.md)
 #### [Docker-basics](docs/Docker-container-basics.md)
+#### [Migrating to another RDS Instance](docs/another-rds-instance.md)
