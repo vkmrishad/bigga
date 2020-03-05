@@ -15,7 +15,7 @@ Once we have the database created.
 
 * In order to take dump before we need to bash into Worker
 ```
-docker-compose exec backend bash
+docker-compose exec worker bash
 ```
 * Once you are in bash. You will need to take pg_dump which needs pgclient, Let's install it.
 ```
