@@ -55,6 +55,8 @@ Use the `machine-share` npm package. Check out the docs on this GitHub repo: [bh
 * To inspect a volume: `docker volume inspect my_volume_name`
 * To remove a volume: `docker volume rm my_volume_name`
 
+Be sure to run `docker-compose down` before removing volume to prevent it from being activly used while deleting.
+
 
 ### Troubleshooting
 
