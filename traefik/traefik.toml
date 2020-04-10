@@ -34,6 +34,10 @@ dashboard = false
   [entryPoints.https]
   address = ":443"
     [entryPoints.https.tls]
+      # Custom SSL certificate
+      # [[entryPoints.https.tls.certificates]]
+      #  certFile = "/certs/ssl.crt"
+      #   keyFile = "/certs/ssl.key"
 
 [acme]
 email = "dhilip@reckonsys.com"
