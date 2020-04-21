@@ -55,6 +55,8 @@ Use the `machine-share` npm package. Check out the docs on this GitHub repo: [bh
 * To inspect a volume: `docker volume inspect my_volume_name`
 * To remove a volume: `docker volume rm my_volume_name`
 
+Be sure to run `docker-compose down` before removing volume to prevent it from being activly used while deleting.
+
 
 ### Troubleshooting
 
@@ -73,3 +75,8 @@ Reckonsys offers paid support to containerize your applications (Compose, Swarm,
 #### [Front-end](docs/Frontend.md)
 #### [Backend](docs/Backend.md)
 #### [Docker-basics](docs/Docker-container-basics.md)
+#### [Migrating to another RDS Instance](docs/another-rds-instance.md)
+
+
+https://github.com/gliderlabs/logspout (papertrail)
+Jaeger: https://github.com/dhilipsiva/talks/blob/master/assets/2020-01-18/docker-compose.yml
