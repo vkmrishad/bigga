@@ -25,7 +25,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data/  
 ```  
-* worker,backend,db,redis,rabbitmq,and traefik, these are all the services must you keep in your docker-compose file.
+* worker, backend, db, redis, rabbitmq, and traefik, these are all the services must you keep in your docker-compose file.
 * If you want another services like websockets and celerybeat, you need to create services for that in your docker-compose file.
  - example: `websockets` you must include below service in your `docker-compose` file.
 ```
@@ -46,7 +46,7 @@ services:
 Above `socket` service you must change the command depends upon your project.
  * In our `socket` service we are using `SOCKET_PORT`, it should be come from `.env` file.
  * we are running our `websocket` as a `socket` service in our `docker-compose` file, so it will create a docker container in our server. If you want to access the websocket you must need `SOCKET_DOMAIN` and please make sure your backend configuration depends upon this.
-  - you should create a `SOCKET_DOMAIN`name in your DNS, because we are not directly ruunig our `socket` service in our server.
+  - you should create a `SOCKET_DOMAIN`name in your DNS, because we are not directly running our `socket` service in our server.
   - create a `A-record` in your DNS using below Example `chat.example.com`.
   ```
   if your docker-machine ip: 192.168.10.8 then your A record will be look like this,
@@ -63,7 +63,7 @@ Above `socket` service you must change the command depends upon your project.
  Above `beat` service you must change the command depends upon your project.
 * we are treafik as a reverse proxy and creating ssl certificate for our domain.
 
-  * please makesure that where you are domian. we need to mention the provider in our `traefik/traefik.toml` file.
+  * please make sure that where you are domain. we need to mention the provider in our `traefik/traefik.toml` file.
   ```
   [acme.dnsChallenge]
   provider = "route53"
@@ -79,7 +79,7 @@ Above `socket` service you must change the command depends upon your project.
   | Namecheap     | namecheap           | NAMECHEAP_API_USER, NAMECHEAP_API_KEY	 |  
   * If you are using above DNS you can create auto ssl and manual ssl creation. if you are using other DNS please refer [traefik-letsencrypt](https://docs.traefik.io/https/acme/).
   * For automatic ssl certificate, you must need to pass the `env` variables form your `.env`.
-  * If you are creating manual certificate, you must run below command and get the values from log and add `TXT` record in your dns,but this command you should run after docker-compose up -d.
+  * If you are creating manual certificate, you must run below command and get the values from log and add `TXT` record in your dns, but this command you should run after docker-compose up -d.
   ```
   docker-compose --log-level DEBUG run traefik
   ```
@@ -131,7 +131,7 @@ RUN \
  pip install -r requirements.txt --no-cache-dir && \
  apk --purge del .build-deps
 ```  
-Mostly we are using these packages in our project, if you neeed aditional packages, add it on our Dockerfile.
+Mostly we are using these packages in our project, if you need additional packages, add it on our Dockerfile.
 * create `requirements.txt` file and add the requirements which you need.
 * After completing all the above steps run the below command in `bigga` folder.
 ```
@@ -145,14 +145,14 @@ Error checking TLS connection: Error checking and/or regenerating the certs: The
 You can attempt to regenerate them using 'docker-machine regenerate-certs [name]'.
 Be advised that this will trigger a Docker daemon restart which might stop running containers.
 ```
-run the following commang
+run the following command
 ```
 'docker-machine regenerate-certs [docker-machine-name]'
 ```
 
 after this, if you are creating manual certificate, run the treafik loglevel debug command and add the TXT record in yor DNS management.
 
-* Please use the below commands for checking the container state,migrations,logs.
+* Please use the below commands for checking the container state, migrations,logs.
 ```
 docker-compose ps
 docker-compose exec worker sh  # to run a migrations inside container
@@ -171,8 +171,9 @@ machine-import  your-machine.zip  # for importing machine.
 
 * If you want to increase your docker-machine size, goto digitalocean console, stop the machine and resize it. After resize again restart your docker-machine then use it.
 
-##### Addition commad:-
-If you want access your database or do some chanegs in database from console, use the below command.
+##### Additional commands:-
+If you want access your database or do some changes in database from console, use the below command.
 
-* docker-compose exec postgres sh   # you can enter into postgres container, then run below command
-* psql -U postgres   # postgres is your username of the database, then you can list,cretae,delete your database.
+* `docker-compose exec postgres sh`   # you can enter into postgres container, then run below command
+* `psql -U postgres`   # postgres is your username of the database, then you can list, cretae, delete your database.
+* `docker exec {container_name} pg_dump --column-inserts --data-only {database_name} -U {database_user} > vigna_prod.sql` # Take postgres dump using pg_dump right from outside of your containers.
