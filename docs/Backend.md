@@ -177,3 +177,4 @@ If you want access your database or do some changes in database from console, us
 * `docker-compose exec postgres sh`   # you can enter into postgres container, then run below command
 * `psql -U postgres`   # postgres is your username of the database, then you can list, cretae, delete your database.
 * `docker exec {container_name} pg_dump --column-inserts --data-only {database_name} -U {database_user} > {file_name}.sql` # Take postgres dump using pg_dump right from outside of your containers. Just make sure you are eval'ed into right machine.
+* `docker exec -i {container_name} psql --username {username} --password {password} {database_name} < /path/on/your/machine/dump.sql` # Import data to the postgres database in a docker container. Run this after you are eval'ed into the right machine. ( Note: This can be dangerous if your eval'ed into wrong machine )
