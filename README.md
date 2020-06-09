@@ -76,6 +76,7 @@ Reckonsys offers paid support to containerize your applications (Compose, Swarm,
 #### [Backend](docs/Backend.md)
 #### [Docker-basics](docs/Docker-container-basics.md)
 #### [Migrating to another RDS Instance](docs/another-rds-instance.md)
+#### [DROP and CREATE a new DB on RDS](docs/recreate-rds.md)
 
 
 https://github.com/gliderlabs/logspout (papertrail)
