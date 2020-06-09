@@ -1,8 +1,8 @@
 # DROP and CREATE a new DB on RDS
 
-1. Connect with RDS: `psql -h amazon-rds-endpoint.com -U postgres -d postgres`
+1. Connect with RDS: `psql -h amazon-rds-endpoint.com -U awsuser -d postgres`
 2. Run `DROP DATABASE database_name`
-3. run `CREATE DATABASE database_name [with owner owner_name]`
+3. run `CREATE DATABASE database_name WITH OWNER OWNER_USER`
 
 If your RDS instance is not publically accessibe:
 
