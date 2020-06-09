@@ -1,6 +1,6 @@
 # bigga
 
-A generic Docker Compose / Kubernetes file to deploy your services (optimized for Python)
+A generic Docker Compose / Kubernetes boilerplate to deploy your services (optimized for Python)
 
 This setup contains everything you need to get started with a production-grade container deployment
 
