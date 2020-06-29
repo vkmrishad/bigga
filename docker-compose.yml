@@ -1,23 +1,14 @@
 version: '3'
 
 volumes:
-  mongo_data: {}
-  traefik_acme: {}
-  rabbitmq_data: {}
-  postgres_data: {}
   elastic_data: {}
+  mongo_data: {}
+  neo4j_data: {}
+  postgres_data: {}
+  rabbitmq_data: {}
+  traefik_acme: {}
 
 services:
-
-  mongo:
-    env_file: .env
-    restart: always
-    image: mongo:latest
-    ports:
-      - 27017
-    volumes:
-      - mongo_data:/data/db
-
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch
     env_file: .env
@@ -28,6 +19,41 @@ services:
       - elastic_data:/usr/share/elasticsearch/data
     ports:
       - 9200
+
+  mongo:
+    env_file: .env
+    restart: always
+    image: mongo:latest
+    ports:
+      - 27017
+    volumes:
+      - mongo_data:/data/db
+
+
+  neo4j:
+    env_file: .env
+    restart: always
+    image: neo4j:latest
+    ports:
+      - 7687
+      # - 7474
+    volumes:
+      - neo4j_data:/data
+    # Uncomment port and below lines to make n4j browser accessible
+    # labels:
+      # - traefik.port=7474
+      # - traefik.enable=true
+      # - traefik.backend.domain=${NEO4J_BROWSER_HOST}
+      # - traefik.frontend.rule=Host:${NEO4J_BROWSER_HOST}
+
+  postgres:
+    env_file: .env
+    restart: always
+    image: postgres:latest
+    ports:
+      - 5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
 
   rabbitmq:
     env_file: .env
@@ -44,15 +70,6 @@ services:
     image: redis:latest
     ports:
       - 6379
-
-  postgres:
-    env_file: .env
-    restart: always
-    image: postgres:latest
-    ports:
-      - 5432
-    volumes:
-      - postgres_data:/var/lib/postgresql/data/
 
   worker: &worker
     env_file: .env
