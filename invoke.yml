@@ -1,0 +1,7 @@
+debug: true
+run:
+    echo: true
+bigga:
+  key_id: ''  # AWS KEY ID
+  secret_key: ''  # AWS Secret Key
+  product_name: '' # Name of the product

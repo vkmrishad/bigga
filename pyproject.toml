@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "bigga"
+version = "0.1.0"
+description = "A generic Docker Compose / Kubernetes boilerplate to deploy your micro services (optimized for Python)"
+authors = ["dhilipsiva <dhilipsiva@pm.me>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+boto3 = "^1.14.13"
+invoke = "^1.4.1"
+
+[tool.poetry.dev-dependencies]
+ipython = "^7.16.1"
+ipdb = "^0.13.3"
+neovim = "^0.3.1"
+flake8 = "^3.8.3"
+isort = "^4.3.21"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
