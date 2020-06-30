@@ -2,6 +2,6 @@ debug: true
 run:
     echo: true
 bigga:
-  key_id: 'AKIAX2K6RYPTJNNCDDXE'  # AWS KEY ID
-  secret_key: '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'  # AWS Secret Key
-  product_name: 'sometemsillproductname' # Name of the product
+  key_id: ''  # AWS KEY ID
+  secret_key: ''  # AWS Secret Key
+  product_name: '' # Name of the product

@@ -1,10 +1,15 @@
+from time import sleep
 from pprint import pprint
 
 from boto3.session import Config, Session
 from invoke import task
 
+ACM_REGION = 'us-east-1'
+ACM_WAIT_TIME = 15
 
-def aws_client(service, region, config):
+
+def aws_client(c, service, region):
+    config = c.config.bigga
     session = Session(region_name=region)
     return session.client(
         service, config=Config(signature_version='s3v4'),
@@ -43,9 +48,8 @@ def list_regions(s, service='s3'):
     'environment': 'beta | qa | prod | stag',
 })
 def create_bucket(c, region, environment):
-    config = c.config.bigga
-    client = aws_client('s3', region, config)
-    bucket_name = get_bucket_name(environment, config.product_name)
+    client = aws_client(c, 's3', region)
+    bucket_name = get_bucket_name(environment, c.config.bigga.product_name)
     response = client.create_bucket(
         ACL='public-read',
         Bucket=bucket_name,
@@ -76,3 +80,31 @@ def create_bucket(c, region, environment):
     pprint(response)
     pprint('Bucket Configured to host website')
     print('Bucket: ', bucket_name)
+
+
+@task(help={
+    'domain': 'Domain to generate certificate for',
+})
+def request_certificate(c, domain):
+    client = aws_client(c, 'acm', ACM_REGION)
+    response = client.request_certificate(
+        DomainName=domain,
+        ValidationMethod='DNS',
+        # SubjectAlternativeNames=['more.example.com'],
+        # IdempotencyToken='string',
+        Options={
+            'CertificateTransparencyLoggingPreference': 'ENABLED'
+        },
+    )
+    print('Certificate requested')
+    cert_arn = response['CertificateArn']
+    print(f'Waiting {ACM_WAIT_TIME} seconds to generate DNS Records')
+    sleep(ACM_WAIT_TIME)
+    print('Certificate Details:')
+    response = client.describe_certificate(CertificateArn=cert_arn)
+    cert_data = response['Certificate']
+    opt = 'DomainValidationOptions'
+    dns_data = cert_data[opt]
+    print('DNS Verificxation Details:')
+    pprint(dns_data)
+    print('Certificate ARN: ', cert_arn)
