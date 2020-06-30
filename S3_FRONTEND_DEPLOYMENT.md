@@ -1,4 +1,14 @@
-# Deploy your angular/react based front-end code on AWS
+# Deploy your react/angular based front-end code on AWS
+
+## Method 1: Using `pyinvoke` scripts:
+
+1. Change config in `invoke.yml`
+1. Acvtivate `poetry shell` (And make sure you have install all required rependiencies `poetry install`)
+1. Type `inv list-regions` to list all AWS regions
+1. Create a bucket: `inv create-bucket <region> <beta|prod|stad|qa|dev>`
+
+
+## Method 2: Manual Steps
 
 1. Go to your S3 console
 1. Create a new bucket. Lets assume the bucket name is `myappfrontend`

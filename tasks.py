@@ -12,6 +12,10 @@ def aws_client(service, region, config):
         aws_secret_access_key=config.secret_key)
 
 
+def get_bucket_name(environment, product_name):
+    return f'app{environment}-{product_name}'
+
+
 @task
 def zombies(c, kill=False):
     '''list (or kill [-k]) zombie processes'''
@@ -41,7 +45,7 @@ def list_regions(s, service='s3'):
 def create_bucket(c, region, environment):
     config = c.config.bigga
     client = aws_client('s3', region, config)
-    bucket_name = f'app{environment}'
+    bucket_name = get_bucket_name(environment, config.product_name)
     response = client.create_bucket(
         ACL='public-read',
         Bucket=bucket_name,
@@ -55,4 +59,20 @@ def create_bucket(c, region, environment):
         # GrantWriteACP='string',
         # ObjectLockEnabledForBucket=True|False
     )
-    __import__('ipdb').set_trace()
+    pprint(response)
+    print('Bucket Created')
+    print('Configuring bucket to host website...')
+    response = client.put_bucket_website(
+        Bucket=bucket_name,
+        WebsiteConfiguration={
+            'ErrorDocument': {
+                'Key': 'index.html'
+            },
+            'IndexDocument': {
+                'Suffix': 'index.html'
+            },
+        }
+    )
+    pprint(response)
+    pprint('Bucket Configured to host website')
+    print('Bucket: ', bucket_name)
