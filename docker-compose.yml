@@ -10,6 +10,21 @@ volumes:
   traefik_acme: {}
 
 services:
+
+  datadog:
+    image: datadog/agent:latest
+    env_file: .env
+    environment:
+      - DOCKER_CONTENT_TRUST=1
+    links:
+      - redis
+    ports:
+      - 8126
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /proc/:/host/proc/:ro
+      - /sys/fs/cgroup:/host/sys/fs/cgroup:ro
+
   elasticsearch:
     env_file: .env
     image: docker.elastic.co/elasticsearch/elasticsearch
@@ -90,6 +105,10 @@ services:
       - rabbitmq:rabbitmq
       - postgres:postgres
       - redis:redis
+
+  beat:
+    <<: *worker
+    command: celery -A config.celery_app beat --loglevel=info
 
   backend:
     <<: *worker
