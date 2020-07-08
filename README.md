@@ -4,7 +4,7 @@ Bigga (Community Edition): A generic Docker Compose boilerplate to deploy your m
 
 This setup contains everything you need to get started with a single-instance, production-grade container deployment
 
-Please get in touch with Reckonsys for the (Enterprise edition)[#Enterprise-Edition].
+Please get in touch with Reckonsys for the [Enterprise edition](#Enterprise-Edition).
 
 ### Featuring:
 
