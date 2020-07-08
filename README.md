@@ -4,7 +4,7 @@ Community Edition of Bigga: A generic Docker Compose / Kubernetes boilerplate to
 
 This setup contains everything you need to get started with a production-grade container deployment
 
-Please get in touch with Reckonsys for the Enterprice edition with full-fledged Kubernetes support, High-Availablility configuration, Metrics and Support.
+Please get in touch with Reckonsys for the Enterprise edition with full-fledged Kubernetes support, High-Availability configuration, Metrics and Priority Support.
 
 Source: https://github.com/reckonsys/bigga
 
