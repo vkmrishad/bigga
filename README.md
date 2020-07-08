@@ -77,9 +77,7 @@ Jaeger: https://github.com/dhilipsiva/talks/blob/master/assets/2020-01-18/docker
 
 # Enterprise Edition
 
-Enterprise edition is a Production Ready setup which contains full-fledged Kubernetes support (So obviously support multiple instances across multiple regions), High-Availability configuration, Metrics and Priority Support.
+Enterprise edition is a Production Ready setup which contains full-fledged Kubernetes support (So obviously support multiple instances across multiple regions), High-Availability configuration, Multi-Tenenat configuration, Metrics and Priority Support.
 
 Reckonsys offers paid support along with the Enterprise Edition of Bigga. Please contact [info@reckonsys.com](mailto:info@reckonsys.com) for more details.
 Source: https://github.com/reckonsys/bigga
-
-
