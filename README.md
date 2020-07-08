@@ -11,7 +11,6 @@ Please get in touch with Reckonsys for the [Enterprise edition](#Enterprise-Edit
 - Docker
 - Docker Compose
 - Docker Machine
-- Kubernetes (via. [kompose](https://kompose.io/))
 - Python (Web + Worker + SocketIO)
 - PostgreSQL
 - Mongo
