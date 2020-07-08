@@ -71,14 +71,16 @@ Refer our troubleshooting guide: [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
 #### [Migrating to another RDS Instance](docs/another-rds-instance.md)
 #### [DROP and CREATE a new DB on RDS](docs/recreate-rds.md)
 
-### Enterprise Edition
+## Pending Integrations
+
+https://github.com/gliderlabs/logspout (papertrail)
+Jaeger: https://github.com/dhilipsiva/talks/blob/master/assets/2020-01-18/docker-compose.yml
+
+# Enterprise Edition
 
 Enterprise edition is a Production Ready setup which contains full-fledged Kubernetes support (So obviously support multiple instances across multiple regions), High-Availability configuration, Metrics and Priority Support.
 
 Reckonsys offers paid support along with the Enterprise Edition of Bigga. Please contact [info@reckonsys.com](mailto:info@reckonsys.com) for more details.
 Source: https://github.com/reckonsys/bigga
 
-# Pending Integrations
 
-https://github.com/gliderlabs/logspout (papertrail)
-Jaeger: https://github.com/dhilipsiva/talks/blob/master/assets/2020-01-18/docker-compose.yml
