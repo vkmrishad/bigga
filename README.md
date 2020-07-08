@@ -1,12 +1,10 @@
-# bigga
+# Bigga (Community Edition)
 
-Community Edition of Bigga: A generic Docker Compose / Kubernetes boilerplate to deploy your services (optimized for Python)
+Bigga (Community Edition): A generic Docker Compose boilerplate to deploy your microservices (optimized for Python)
 
-This setup contains everything you need to get started with a production-grade container deployment
+This setup contains everything you need to get started with a single-instance, production-grade container deployment
 
-Please get in touch with Reckonsys for the Enterprise edition with full-fledged Kubernetes support, High-Availability configuration, Metrics and Priority Support.
-
-Source: https://github.com/reckonsys/bigga
+Please get in touch with Reckonsys for the (Enterprise edition)[#Enterprise-Edition].
 
 ### Featuring:
 
@@ -42,7 +40,7 @@ Blog post -> https://realpython.com/blog/python/django-development-with-docker-c
 Suppose you want to run X `backend` containers and Y `worker` containers: `docker-compose scale backend=X worker=Y`
 
 
-### S3 Based front-end deplotment
+### S3 Based front-end deployment
 
 Refer our S3 deployment guide: [S3_FRONTEND_DEPLOYMENT.md](S3_FRONTEND_DEPLOYMENT.md)
 
@@ -64,13 +62,6 @@ Be sure to run `docker-compose down` before removing volume to prevent it from b
 
 Refer our troubleshooting guide: [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
 
-### Kubernetes
-
-We can use [Kompose](https://kompose.io/) to deploy to kubernetes. Just do [`kompose up`](https://kompose.io/getting-started/).
-
-### Support
-
-Reckonsys offers paid support to containerize your applications (Compose, Swarm, Kubernetes, Mesos, etc..). Please contact [info@reckonsys.com](mailto:info@reckonsys.com) for more details.
 
 ## More Docs:
 
@@ -80,6 +71,14 @@ Reckonsys offers paid support to containerize your applications (Compose, Swarm,
 #### [Migrating to another RDS Instance](docs/another-rds-instance.md)
 #### [DROP and CREATE a new DB on RDS](docs/recreate-rds.md)
 
+### Enterprise Edition
+
+Enterprise edition is a Production Ready setup which contains full-fledged Kubernetes support (So obviously support multiple instances across multiple regions), High-Availability configuration, Metrics and Priority Support.
+
+Reckonsys offers paid support along with the Enterprise Edition of Bigga. Please contact [info@reckonsys.com](mailto:info@reckonsys.com) for more details.
+Source: https://github.com/reckonsys/bigga
+
+# Pending Integrations
 
 https://github.com/gliderlabs/logspout (papertrail)
 Jaeger: https://github.com/dhilipsiva/talks/blob/master/assets/2020-01-18/docker-compose.yml
