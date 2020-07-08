@@ -72,7 +72,8 @@ Refer our troubleshooting guide: [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
 
 ## Pending Integrations
 
-https://github.com/gliderlabs/logspout (papertrail)
+PaperTrail: https://github.com/gliderlabs/logspout
+
 Jaeger: https://github.com/dhilipsiva/talks/blob/master/assets/2020-01-18/docker-compose.yml
 
 # Enterprise Edition
@@ -80,4 +81,5 @@ Jaeger: https://github.com/dhilipsiva/talks/blob/master/assets/2020-01-18/docker
 Enterprise edition is a Production Ready setup which contains full-fledged Kubernetes support (So obviously support multiple instances across multiple regions), High-Availability configuration, Multi-Tenant configuration, Metrics and Priority Support.
 
 Reckonsys offers paid support along with the Enterprise Edition of Bigga. Please contact [info@reckonsys.com](mailto:info@reckonsys.com) for more details.
+
 Source: https://github.com/reckonsys/bigga
