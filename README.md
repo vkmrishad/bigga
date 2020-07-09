@@ -18,7 +18,7 @@ Please get in touch with Reckonsys for the [Enterprise edition](#Enterprise-Edit
 - RabbitMQ
 - Traefik (nginx alternative)
 
-Blog post -> https://realpython.com/blog/python/django-development-with-docker-compose-and-machine/
+Blog post: [Reckonsys Engineering Blog](https://www.reckonsys.com/blog/bigga-a-generic-docker-compose-boilerplate-to-deploy-your-microservices-optimized-for-python/)
 
 
 ### Instructions
