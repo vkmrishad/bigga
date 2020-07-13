@@ -8,17 +8,8 @@ Please get in touch with Reckonsys for the [Enterprise edition](#Enterprise-Edit
 
 ### Featuring:
 
-- Docker (Machine & Compose)
-- DataDog
-- ElasticSearch
-- Mongo
-- Neo4j
-- PostgreSQL
-- RabbitMQ
-- Redis
-- Backend Services (API / Socket / Workers / CRON)
-- SSR Frontend
-- Traefik (Edge Router / load-balancer)
+![Bigga Poster](poster.png "Bigga Poster")
+
 
 Blog post: [Reckonsys Engineering Blog](https://www.reckonsys.com/blog/bigga-a-generic-docker-compose-boilerplate-to-deploy-your-microservices-optimized-for-python/)
 
